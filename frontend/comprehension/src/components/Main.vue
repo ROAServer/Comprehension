@@ -56,9 +56,6 @@ const LOGIN_FORM_RULES: Ref<FormRules<Form>> = ref({
 </template>
 
 <style scoped lang="scss">
-$shadow-light: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
-
-
 #box {
   width: 20rem;
   min-height: 10rem;
@@ -66,10 +63,8 @@ $shadow-light: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
   padding: 1rem;
 
   background: transparent;
-  box-shadow: $shadow-light;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   border-color: transparent;
-
-  //border-radius: 10px;
 
   @media only screen and (width < 480px) {
     width: 16rem;
