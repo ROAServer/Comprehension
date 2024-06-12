@@ -1,10 +1,10 @@
 package icu.takeneko.comprehension
 
+import icu.takeneko.comprehension.routing.configureRouting
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
-import io.ktor.server.http.content.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.autohead.*
 import io.ktor.server.plugins.cachingheaders.*
@@ -12,12 +12,10 @@ import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.request.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
 
-fun main(args: Array<String>) {
+fun main() {
     val logger = LoggerFactory.getLogger("Comprehension")
     logger.info("Hello World!")
     val port = (System.getProperty("comprehension.port") ?: "80").toIntOrNull() ?: 80
@@ -41,7 +39,6 @@ fun Application.module() {
         allowHeader(HttpHeaders.Authorization)
         anyHost()
     }
-
     install(CachingHeaders) {
         val noCache = io.ktor.http.content.CachingOptions(CacheControl.NoCache(CacheControl.Visibility.Public))
         val lazy = io.ktor.http.content.CachingOptions(CacheControl.MaxAge(maxAgeSeconds = 60 * 10)) // 10 minutes
@@ -63,19 +60,7 @@ fun Application.module() {
     install(ContentNegotiation) {
         json()
     }
-    routing {
-        singlePageApplication {
-            vue("dist")
-            useResources = true
-            defaultPage = "index.html"
-        }
-        // actual API code
-        route("api") {
-            get("/") {
-                call.respondText { "Some API response" }
-            }
-        }
-    }
+    configureRouting()
 }
 
 val Application.envKind get() = environment.config.propertyOrNull("ktor.environment")?.getString()

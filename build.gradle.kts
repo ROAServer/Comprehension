@@ -50,6 +50,7 @@ val yarnBuild = task<NpmTask>("yarnBuild") {
 }
 
 val copyDistFolder = tasks.register<Copy>("copyDistFolder") {
+    delete(file("src/main/resources/dist"))
     from(file("frontend/comprehension/dist"))
     into(file("src/main/resources/dist"))
 }

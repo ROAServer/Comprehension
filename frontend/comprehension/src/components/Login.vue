@@ -30,11 +30,11 @@ const login = () => {
 
 <template>
   <div>
-    <el-card id="box" stretch :model="loginForm" title="使用考试码登录">
-      <el-text style="font-weight: 1000">使用考试码登录</el-text>
+    <el-card id="box" stretch :model="loginForm">
+      <el-text style="font-weight: 1000">使用测试码登录</el-text>
       <div style="display: flex;margin-top: 20px;flex-direction: row">
-        <el-text style="text-align: left;width: 60px">考试码</el-text>
-        <el-input placeholder="" style="margin-left: 20px" v-model="loginForm.passcode" @keyup.enter="login"/>
+        <el-text style="text-align: left;width: 60px">测试码</el-text>
+        <el-input placeholder="" style="margin-left: 10px" v-model="loginForm.passcode" @keyup.enter="login"/>
       </div>
       <el-button style="margin-top: 20px" class="button" :loading="isLoginRunning" @click="login">登录</el-button>
     </el-card>
