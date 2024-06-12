@@ -1,0 +1,16 @@
+[2024-06-12 23:43:13.693] [main/INFO] (Comprehension) : Hello World!
+[2024-06-12 23:43:13.811] [main/INFO] (k.application) : Autoreload is disabled because the development mode is off.
+[2024-06-12 23:43:14.396] [main/INFO] (k.application) : Application started in 0.636 seconds.
+[2024-06-12 23:43:14.396] [main/INFO] (k.application) : Application started: io.ktor.server.application.Application@5b78fdb1
+[2024-06-12 23:43:16.698] [DefaultDispatcher-worker-2/INFO] (k.application) : Responding at http://127.0.0.1:8080
+[2024-06-12 23:43:52.260] [main/INFO] (Comprehension) : Hello World!
+[2024-06-12 23:43:52.368] [main/INFO] (k.application) : Autoreload is disabled because the development mode is off.
+[2024-06-12 23:43:52.924] [main/INFO] (k.application) : Application started in 0.603 seconds.
+[2024-06-12 23:43:52.925] [main/INFO] (k.application) : Application started: io.ktor.server.application.Application@48bfb884
+[2024-06-12 23:43:55.086] [DefaultDispatcher-worker-1/INFO] (k.application) : Responding at http://127.0.0.1:8080
+[2024-06-12 23:43:57.868] [eventLoopGroupProxy-4-1/INFO] (k.application) : [32m200 OK[m: [36mGET[m - / in 107ms
+[2024-06-12 23:43:57.925] [eventLoopGroupProxy-4-1/INFO] (k.application) : [32m200 OK[m: [36mGET[m - /assets/index-CQ2efGjd.css in 16ms
+[2024-06-12 23:43:57.933] [eventLoopGroupProxy-4-2/INFO] (k.application) : [32m200 OK[m: [36mGET[m - /assets/index-Bqg2JoJV.js in 21ms
+[2024-06-12 23:43:58.053] [eventLoopGroupProxy-4-2/INFO] (k.application) : [32m200 OK[m: [36mGET[m - /vite.svg in 2ms
+[2024-06-12 23:43:58.055] [eventLoopGroupProxy-4-1/INFO] (k.application) : [32m200 OK[m: [36mGET[m - /element-plus-logo-small.svg in 3ms
+[2024-06-12 23:43:58.131] [eventLoopGroupProxy-4-1/INFO] (k.application) : [32m200 OK[m: [36mGET[m - /favicon.svg in 2ms

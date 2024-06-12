@@ -1,0 +1,24 @@
+/.gradle
+/.idea
+/out
+/build
+*.iml
+*.ipr
+*.iws
+
+.DS_Store
+
+frontend/comprehension/node_modules
+frontend/comprehension/dist
+src/main/resources/dist
+
+# local env files
+frontend/comprehension/.env.local
+frontend/comprehension/.env.*.local
+
+# Log files
+frontend/comprehension/npm-debug.log*
+frontend/comprehension/yarn-debug.log*
+frontend/comprehension/yarn-error.log*
+frontend/comprehension/pnpm-debug.log*
+.kotlin
