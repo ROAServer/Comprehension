@@ -3,7 +3,7 @@ import com.github.gradle.node.npm.task.NpmTask
 val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
-
+val comprehensionVersion: String by project
 
 plugins {
     application
@@ -15,10 +15,10 @@ plugins {
 }
 
 group = "icu.takeneko"
-version = "1.0.0"
+version = comprehensionVersion
 
 application {
-    mainClass = "io.ktor.server.netty.EngineMain"
+    mainClass = "icu.takeneko.comprehension.ApplicationKt"
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
@@ -42,6 +42,8 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
 }
+
+
 val yarnBuild = task<NpmTask>("yarnBuild") {
     workingDir = file("frontend/comprehension")
     args.set(listOf("run", "build"))
@@ -92,5 +94,10 @@ tasks {
     }
     "processResources" {
         dependsOn(copyDistFolder)
+    }
+    shadowJar {
+    }
+    kotlin {
+        jvmToolchain(17)
     }
 }
