@@ -3,7 +3,7 @@
     <BaseHeader />
     <div class="flex main-container">
       <div w="full" py="4">
-        <Main/>
+        <Login/>
       </div>
     </div>
   </el-config-provider>

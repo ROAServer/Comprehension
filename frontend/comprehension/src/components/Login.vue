@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type {
+import {
   FormRules,
-  FormItemRule,
+  FormItemRule, ElMessage,
 } from "element-plus";
 import {Ref, ref} from "vue";
 
@@ -9,35 +9,22 @@ interface Form {
   passcode: string
 }
 
-const login = () => {
-  //isLoginRunning.value = true
-  let passcode: String = loginForm.value.passcode
-  if (passcode == "") return
-}
-
+const passcodeRegex: RegExp = /[A-Z]{6}[0-9]{6}/g
 const isLoginRunning = ref<boolean>(false);
-
 const loginForm: Ref<Form> = ref<Form>({
   passcode: ""
 })
 
-const PASSCODE_RULES: FormItemRule[] = [
-  {
-    required: true,
-    message: "需要考试码",
-    trigger: "blur",
-  },
-  {
-    pattern: "[A-Z]{6}[0-9]{6}",
-    message: "无效的考试码",
-    trigger: "blur",
-  },
-];
+const login = () => {
+  isLoginRunning.value = true
+  let passcode: String = loginForm.value.passcode
+  if (passcode == "" || !passcode.match(passcodeRegex)) {
+    ElMessage.error("无效的考试码")
+  } else {
 
-const LOGIN_FORM_RULES: Ref<FormRules<Form>> = ref({
-  passcode: PASSCODE_RULES,
-});
-
+  }
+  isLoginRunning.value = false
+}
 
 </script>
 
