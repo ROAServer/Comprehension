@@ -1,0 +1,14 @@
+{
+  "title": "1+1",
+  "assetRef": [
+    "example:one",
+    "example:plus",
+    "example:one"
+  ],
+  "choices": {
+    "A": "10",
+    "B": "2",
+    "C": "3"
+  },
+  "answer": "B"
+}

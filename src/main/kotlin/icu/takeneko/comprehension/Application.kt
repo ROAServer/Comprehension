@@ -14,6 +14,9 @@ import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.request.*
 import org.slf4j.LoggerFactory
 import org.slf4j.event.Level
+import kotlin.io.path.Path
+import kotlin.io.path.createDirectory
+import kotlin.io.path.exists
 
 fun main() {
     val logger = LoggerFactory.getLogger("Comprehension")
@@ -23,6 +26,24 @@ fun main() {
 
     embeddedServer(Netty, port = port, host = host, module = Application::module)
         .start(wait = true)
+}
+
+fun createDirectories() {
+    Path("ComprehensionData").apply {
+        if (!exists()) {
+            createDirectory()
+        }
+        resolve("ExaminationPapers").apply {
+            if (!exists()) {
+                createDirectory()
+            }
+        }
+        resolve("TestResults").apply {
+            if (!exists()) {
+                createDirectory()
+            }
+        }
+    }
 }
 
 fun Application.module() {

@@ -22,3 +22,4 @@ frontend/comprehension/yarn-debug.log*
 frontend/comprehension/yarn-error.log*
 frontend/comprehension/pnpm-debug.log*
 .kotlin
+run

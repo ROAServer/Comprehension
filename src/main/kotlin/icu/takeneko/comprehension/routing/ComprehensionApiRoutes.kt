@@ -37,6 +37,12 @@ fun Application.configureRouting() {
                     get("/answer") {
 
                     }
+                    post("/upload"){
+
+                    }
+                    post("/list") {
+
+                    }
                 }
             }
         }

@@ -1,0 +1,13 @@
+{
+  "id": "example",
+  "title": "Example",
+  "version":"1.0",
+  "dataForm": {
+    "Name": "",
+    "Age": ""
+  },
+  "answerTimeLimit": "300",
+  "questions": {
+    "1": "single_choice"
+  }
+}
