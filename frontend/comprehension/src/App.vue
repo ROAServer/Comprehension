@@ -1,11 +1,7 @@
 <template>
   <el-config-provider namespace="ep">
     <BaseHeader />
-    <div class="flex main-container">
-      <div w="full" py="4">
-        <Login/>
-      </div>
-    </div>
+    <router-view></router-view>
   </el-config-provider>
 </template>
 
@@ -19,3 +15,5 @@
   height: calc(100vh - var(--ep-menu-item-height) - 3px);
 }
 </style>
+<script setup lang="ts">
+</script>

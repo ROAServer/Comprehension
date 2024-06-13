@@ -7,44 +7,23 @@ import io.ktor.server.routing.*
 
 
 fun Application.configureRouting() {
-
+    passcodeApi()
+    testApi()
+    intrinsicsApi()
     routing {
         singlePageApplication {
-            vue("dist")
+            filesPath = "dist"
             useResources = true
             defaultPage = "index.html"
         }
+
         route("api") {
             route("/v1") {
                 get {
                     call.respond("Comprehension API v1")
                 }
-                route("/passcode") {
-                    get("/info") {
-
-                    }
-                    get("/start"){
-
-                    }
-                    get("/terminate") {
-
-                    }
-                }
-                route("/test") {
-                    get("/commit") {
-
-                    }
-                    get("/answer") {
-
-                    }
-                    post("/upload"){
-
-                    }
-                    post("/list") {
-
-                    }
-                }
             }
         }
     }
+
 }

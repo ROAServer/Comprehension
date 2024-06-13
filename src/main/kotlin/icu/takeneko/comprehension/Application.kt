@@ -23,7 +23,6 @@ fun main() {
     logger.info("Hello World!")
     val port = (System.getProperty("comprehension.port") ?: "80").toIntOrNull() ?: 80
     val host = System.getProperty("comprehension.host") ?: "0.0.0.0"
-
     embeddedServer(Netty, port = port, host = host, module = Application::module)
         .start(wait = true)
 }
