@@ -40,7 +40,7 @@ const login = () => {
     <div class="flex main-container">
       <div w="full" py="4">
         <div>
-          <el-card id="box" stretch :model="loginForm">
+          <el-card id="box" stretch>
             <el-text style="font-weight: 1000">使用测试码登录</el-text>
             <div style="display: flex;margin-top: 20px;flex-direction: row">
               <el-text style="text-align: left;width: 60px">测试码</el-text>

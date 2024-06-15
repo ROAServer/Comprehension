@@ -26,7 +26,7 @@ object PasscodeManager {
         read()
     }
 
-    fun flush() {
+    private fun flush() {
         passcodes.values.forEach {
             passcodeData.resolve("${it.passcode}.json").apply {
                 deleteIfExists()
@@ -43,12 +43,12 @@ object PasscodeManager {
         }
     }
 
-    fun read() {
+    private fun read() {
         (passcodeData.toFile().listFiles() ?: return)
             .filter { it.extension == "json" }
             .forEach {
                 val pc = try {
-                    json.decodeFromStream<PassCode>(it.inputStream())
+                    it.inputStream().use { i -> json.decodeFromStream<PassCode>(i) }
                 } catch (e: Exception) {
                     e.printStackTrace()
                     it.toPath().deleteIfExists()
@@ -60,7 +60,7 @@ object PasscodeManager {
             .filter { it.extension == "json" }
             .forEach {
                 val pc = try {
-                    json.decodeFromStream<TestResult>(it.inputStream())
+                    it.inputStream().use { i -> json.decodeFromStream<TestResult>(i) }
                 } catch (e: Exception) {
                     e.printStackTrace()
                     it.toPath().deleteIfExists()
@@ -184,7 +184,7 @@ object PasscodeManager {
     }
 
     fun info(passcode: String): PassCode? {
-        if (passcode in passcodes){
+        if (passcode in passcodes) {
             validatePasscodeStatus(passcode)
             return passcodes[passcode]!!
         }
