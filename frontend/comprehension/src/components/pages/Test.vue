@@ -10,7 +10,7 @@ if (!checkPassCode(passcode)) {
   router.push("/")
 }
 validatePasscode(passcode!!).then(b => {
-  if (!b){
+  if (!b) {
     router.push("/")
   }
 }).catch(reason => {

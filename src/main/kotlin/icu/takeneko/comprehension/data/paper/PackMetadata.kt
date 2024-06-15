@@ -7,10 +7,9 @@ data class PackMetadata(
     val id: String,
     val title: String,
     val version: String,
-    val answerTimeLimit:String,
+    val answerTimeLimit:Long,
     val dataForm: Map<String,String>,
     val questions: Map<String, String>,
-
 )
 
 @Serializable

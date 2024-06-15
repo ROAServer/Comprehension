@@ -6,6 +6,9 @@ import kotlinx.serialization.Serializable
 data class PassCode(
     val passcode: String,
     val expireTime: Long,
-    val answerTimeLimit: Long,
-    val paperId:String
-)
+    val paperId:String,
+    var hasTestResult: Boolean = false,
+    var started: Boolean = false
+) {
+
+}

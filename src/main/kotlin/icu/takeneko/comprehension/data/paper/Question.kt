@@ -34,10 +34,17 @@ data class MultiLineQuestion(
 )
 
 object QuestionRegistry{
-    val questionTypes = mapOf(
-        "single_choice" to SingleChoiceQuestion::class.java,
-        "true_or_false" to TrueOrFalseQuestion::class.java,
-        "fill_blank" to FillBlankQuestion::class.java,
-        "multi_line" to MultiLineQuestion::class.java
+    val questionSerializers = mapOf(
+        "single_choice" to SingleChoiceQuestion.serializer(),
+        "true_or_false" to TrueOrFalseQuestion.serializer(),
+        "fill_blank" to FillBlankQuestion.serializer(),
+        "multi_line" to MultiLineQuestion.serializer()
+    )
+
+    val classSerializationStrategies = mapOf(
+        SingleChoiceQuestion::class.java to SingleChoiceQuestion.serializer(),
+        TrueOrFalseQuestion::class.java to TrueOrFalseQuestion.serializer(),
+        FillBlankQuestion::class.java to FillBlankQuestion.serializer(),
+        MultiLineQuestion::class.java to MultiLineQuestion.serializer()
     )
 }

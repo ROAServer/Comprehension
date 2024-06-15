@@ -1,5 +1,9 @@
 package icu.takeneko.comprehension
 
+import icu.takeneko.comprehension.data.Config
+import icu.takeneko.comprehension.data.loadConfig
+import icu.takeneko.comprehension.data.paper.PaperManager
+import icu.takeneko.comprehension.data.passcode.PasscodeManager
 import icu.takeneko.comprehension.routing.configureRouting
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
@@ -18,11 +22,17 @@ import kotlin.io.path.Path
 import kotlin.io.path.createDirectory
 import kotlin.io.path.exists
 
+lateinit var config: Config
+
 fun main() {
     val logger = LoggerFactory.getLogger("Comprehension")
     logger.info("Hello World!")
     val port = (System.getProperty("comprehension.port") ?: "80").toIntOrNull() ?: 80
     val host = System.getProperty("comprehension.host") ?: "0.0.0.0"
+    createDirectories()
+    config = loadConfig()
+    PasscodeManager.init()
+    PaperManager.init()
     embeddedServer(Netty, port = port, host = host, module = Application::module)
         .start(wait = true)
 }
@@ -31,16 +41,6 @@ fun createDirectories() {
     Path("ComprehensionData").apply {
         if (!exists()) {
             createDirectory()
-        }
-        resolve("ExaminationPapers").apply {
-            if (!exists()) {
-                createDirectory()
-            }
-        }
-        resolve("TestResults").apply {
-            if (!exists()) {
-                createDirectory()
-            }
         }
     }
 }
